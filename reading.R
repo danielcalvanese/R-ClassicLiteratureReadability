@@ -8,10 +8,10 @@ books_by_download <- books %>% arrange(desc(downloads))
 books_refined <- books_by_download %>% select(author, title, words, syllables, sentences)
 
 # Take rows of the authors of the top ten books.
-top_ten_authors <- books %>% head(10) %>% pull(author)
+top_ten_authors <- books_refined %>% head(10) %>% pull(author)
 
 # Select all rows of authors of the top ten books.
-authors_books <- books %>% filter(author %in% top_ten_authors) %>% arrange(author)
+authors_books <- books_refined %>% filter(author %in% top_ten_authors) %>% arrange(author)
 
 # Add a column called the flesch reading ease to the authors of the top ten books.
 reading_ease <- authors_books %>% mutate(flesch_reading_ease = 206.835 - 1.015 * (words / sentences) - 84.6 * (syllables / words))
