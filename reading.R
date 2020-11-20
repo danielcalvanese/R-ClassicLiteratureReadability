@@ -27,7 +27,7 @@ reading_summary <- reading_grouped %>% summarise(
 )
 
 # Reshape the reading summary.  Not sure where type and score are coming from.
-reading_long <- reading_summary %>% gather(type, score, flesch_reading_ease:flesch_kindcaid_grade_level)
+reading_long <- reading_summary %>% gather(type, score, flesch_reading_ease:flesch_kincaid_grade_level)
 
 # Create a plot object on the long reading summary with a proportional column layer on the plot.  
 # Map author to score.
